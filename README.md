@@ -1,46 +1,49 @@
-# Getting Started with Create React App
+# Getting Started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Clone the repository using the git clone command.
+git clone https://github.com/INNOMIGHT/auth-redux-template.git
 
 ## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+### `File Structure`
+You get src and public folder. Bootstrap is embedded using cdn. 
+You get API folder where axiosInstance is created for you. (withCredentials is set to true to automatically send cookies)
+You get Components folder where Home, Login and Registration pages are provided.
+You get Hooks folder where you can find useDispatch and useSelect aliases with type definitions so you can use it directly everytime.
+You get the Layouts folder where you can find the default routes layout and protected routes layout which is used in routing of default and protected routes in App.tsx.
+You get the Slices folder where you have the authSlice and userSlice. authSlice is responsible for handling authentication login, register etc.
+You have your store.ts where your redux store is defined.
+In App.tsx you have your routes.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+So you get the project setup in which you want to use login and registration. You can modify your routes or anything you want accordingly.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+### `How to use?`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Wherever you want to use actions you can dispatch actions in this way - 
+const dispatch = useAppDispatch(); 
+const handleSubmit = async (e: any) => {
+        if (values.email && values.password) {
+            try {
+              await dispatch(
+                login({
+                    email: values.email,
+                    password: values.password,
+                })
+              ).unwrap();
+            } catch (e) {
+              console.error(e);
+            }
+          } 
+    };
 
-### `npm run build`
+Directly just call dispatch(actionName).unwrap() and you are good to go.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `What this repository does for you?`
+You do not need to create the login and registration again and again for your new projects. Just start from here with login and registration already embedded in your react application. This just makes it faster for you to begin with your project building.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

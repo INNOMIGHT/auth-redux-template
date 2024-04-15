@@ -1,11 +1,11 @@
 {
   "name": "auth-redux-template",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": false,
   "files": [
-    "dist",
-    "public",
-    "src",
+    "src/",
+    "dist/",
+    "public/",
     "README.md"
   ],
   "dependencies": {
