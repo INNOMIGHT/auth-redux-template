@@ -3,8 +3,6 @@
 Clone the repository using the git clone command.
 git clone https://github.com/INNOMIGHT/auth-redux-template.git
 
-## Available Scripts
-
 
 ### `File Structure`
 You get src and public folder. Bootstrap is embedded using cdn. 
